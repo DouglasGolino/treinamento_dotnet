@@ -1,10 +1,11 @@
 ﻿using Solution;
+using System.Runtime.Intrinsics.X86;
 
 class Program
 {
     private static void Main(string[] args)
     {
-        var carros = GeradorDeCarro();
+        var carros = GeradorDeCarros();
 
         foreach (var carro in carros)
         {
@@ -18,18 +19,20 @@ class Program
         }
     }
 
-    //Criando 100 objetos do tipo Carro
-    public static IEnumerable<Carro> GeradorDeCarro()
+    //O yield return sem retorna uma unidade de alguma coisa
+    //O yield return memoriza quando foi a ultima vez que você usou o yield return em seu código e então ele "volta lá"
+    public static IEnumerable<Carro> GeradorDeCarros()
     {
-        var carros = new List<Carro>();
+        //var carros = new List<Carro>();
+        Console.WriteLine("Passei pelo método GeradorDeCarros");
+        Console.WriteLine("\r\n");
 
         for (var i = 1; i <= 100; i++)
         {
-            carros.Add(new Carro(Guid.NewGuid(), i));
+            //carros.Add(new Carro(Guid.NewGuid(), i));
+            yield return new Carro(Guid.NewGuid(), i);
         }
 
-        Console.WriteLine("\r\n");
-
-        return carros;
+        //return carros;
     }
 }
