@@ -1,5 +1,4 @@
 ﻿using Solution;
-using System.Runtime.Intrinsics.X86;
 
 class Program
 {
@@ -10,10 +9,10 @@ class Program
         foreach (var carro in carros)
         {
             //Usando apenas os carros com NumeroDeSerie menor que 5
-            if (carro.NumeroDeSerie == 5)
-            {
-                break;
-            }
+            //if (carro.NumeroDeSerie == 5)
+            //{
+            //    break;
+            //}
 
             Console.WriteLine(carro);
         }
@@ -29,6 +28,11 @@ class Program
 
         for (var i = 1; i <= 100; i++)
         {
+            if (i == 5) // Supondo que você queira parar a geração quando i for igual a 5
+            {
+                yield break; // Isso encerra a iteração do loop e, consequentemente, a geração de carros
+            }
+
             //carros.Add(new Carro(Guid.NewGuid(), i));
             yield return new Carro(Guid.NewGuid(), i);
         }
