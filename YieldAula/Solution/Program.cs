@@ -16,6 +16,12 @@ class Program
 
             Console.WriteLine(carro);
         }
+
+        var palavras = ConverteParaCaixaBaixa("\r\nESTUDO DE C# PARA MELHORAR NOSSOS PROJETOS!");
+        foreach (string palavra in palavras)
+        {
+            Console.Write("{0} ", palavra);
+        }
     }
 
     //O yield return sem retorna uma unidade de alguma coisa
@@ -38,5 +44,13 @@ class Program
         }
 
         //return carros;
+    }
+
+    public static IEnumerable<string> ConverteParaCaixaBaixa(string frase)
+    {
+        foreach (var palavra in frase.Split(' '))
+        {
+            yield return palavra.ToLower();
+        }
     }
 }
