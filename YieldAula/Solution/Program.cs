@@ -24,7 +24,7 @@ class Program
         }
     }
 
-    //O yield return sem retorna uma unidade de alguma coisa
+    //O yield return sempre retorna uma unidade de alguma coisa
     //O yield return memoriza quando foi a ultima vez que você usou o yield return em seu código e então ele "volta lá"
     public static IEnumerable<Carro> GeradorDeCarros()
     {
